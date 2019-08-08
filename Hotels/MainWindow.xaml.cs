@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,38 @@ namespace Hotels
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = @"Data Source=C:\Users\musta\source\repos\Hotels\hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
+            SQLiteConnection sQLiteConnection = new SQLiteConnection(connectionString);
+
+            sQLiteConnection.Open();
+
+            using (SQLiteCommand cmd = new SQLiteCommand(sQLiteConnection))
+            {
+                cmd.CommandText = "INSERT INTO TA_Emplyee VALUES (@Id, @Name, @Moble, @Salary)";
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@Name", "Mustafa");
+                cmd.Parameters.AddWithValue("@Moble", "011131455652");
+                cmd.Parameters.AddWithValue("@Salary", 5000);
+                cmd.Parameters.AddWithValue("@Id", 5000);
+                try
+                {
+                   var result = cmd.ExecuteNonQuery();
+                }
+                catch (SQLiteException ee)
+                {
+                    string ms = ee.Message;
+                }
+            }
+            sQLiteConnection.Close();
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("clicc");
         }
     }
 }

@@ -7,6 +7,121 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="0"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+
+                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_png_16408.jpg" VerticalAlignment = "Top" />
+
+            </DockPanel>
+
+        </Border>
+       
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+
+                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+
+            </DockPanel>
+
+        </Border>
+        
+
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="0"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+
+                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+
+            </DockPanel>
+
+        </Border>
+        
+
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="1"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+            </DockPanel>
+
+        </Border>
+
+     
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="0"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+            </DockPanel>
+
+        </Border>
+        
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1" >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+
+
+                <StackPanel Orientation="Vertical">
+
+
+                    <Button x:Name="button5" Content="Button" VerticalContentAlignment="Center" Height="150" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                        <Image  MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+                    </StackPanel>
+                </StackPanel>
+
+            </DockPanel>
+           
+        </Border>
         
     </Grid>
 </Window>
