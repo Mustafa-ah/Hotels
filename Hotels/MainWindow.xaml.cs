@@ -28,7 +28,8 @@ namespace Hotels
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = @"Data Source=C:\Users\musta\source\repos\Hotels\hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
+            //string connectionString = @"Data Source=C:\Users\musta\source\repos\Hotels\hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
+            string connectionString = "Data Source=|DataDirectory|hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
             SQLiteConnection sQLiteConnection = new SQLiteConnection(connectionString);
 
             sQLiteConnection.Open();
@@ -55,7 +56,22 @@ namespace Hotels
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("clicc");
+            try
+            {
+                Button_Click(sender, e);
+                MessageBox.Show("تم الاتصال");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void AddVist_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            VistsView vistsView = new VistsView();
+            vistsView.Show();
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Hotels.VistsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotels">
+    <Grid>
+
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="0"  >
+
+            <DockPanel
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch" Background="RosyBrown"
+        Height="Auto" 
+        Margin="10">
+
+                <StackPanel Orientation="Vertical">
+
+
+                    <DataGrid Width="500" Height="300" x:Name="VistsGrid" Background="AliceBlue"/>
+                    
+                </StackPanel>
+
+            </DockPanel>
+
+        </Border>
+
+    </Grid>
+</Window>

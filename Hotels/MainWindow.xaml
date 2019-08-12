@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized" Icon="appIcon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -26,8 +26,16 @@
         Height="Auto" 
         Margin="10">
 
+                <StackPanel Orientation="Vertical">
 
-                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_png_16408.jpg" VerticalAlignment = "Top" />
+
+                    <Button x:Name="buttonHotles" Content="الفنادق" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
 
             </DockPanel>
 
@@ -42,8 +50,16 @@
         Height="Auto" 
         Margin="10">
 
+                <StackPanel Orientation="Vertical">
 
-                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+
+                    <Button x:Name="buttonDeductions" Content="الخصومات" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
 
             </DockPanel>
 
@@ -60,8 +76,16 @@
         Height="Auto" 
         Margin="10">
 
+                <StackPanel Orientation="Vertical">
 
-                <Image Width = "50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+
+                    <Button x:Name="buttonContracts" Content="العقود" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
 
             </DockPanel>
 
@@ -78,6 +102,18 @@
         Height="Auto" 
         Margin="10">
 
+                <StackPanel Orientation="Vertical">
+
+
+                    <Button x:Name="buttonOutGoing" Content="المصروفات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+
+                
             </DockPanel>
 
         </Border>
@@ -92,6 +128,18 @@
         Height="Auto" 
         Margin="10">
 
+                <StackPanel Orientation="Vertical">
+
+
+                    <Button x:Name="buttonVists" Content="الزيارات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+
+                        <Image x:Name="AddVist" Width="50" Height="50" MouseDown ="AddVist_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+
+                
             </DockPanel>
 
         </Border>
@@ -111,11 +159,11 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="button5" Content="Button" VerticalContentAlignment="Center" Height="150" />
+                    <Button x:Name="buttonEmplyee" Content="الموظفين" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
 
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image  MouseDown="Image_MouseDown" Source = "Images\add.png" VerticalAlignment = "Top" />
+                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 
