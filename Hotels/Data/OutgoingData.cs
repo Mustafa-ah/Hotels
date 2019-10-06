@@ -37,5 +37,48 @@ namespace Hotels.Data
             }
             return result;
         }
+
+        public List<Outgoing> GetAllOutgoings()
+        {
+            List<Outgoing> data = new List<Outgoing>();
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(sQLiteConnection))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM TA_OutGoings ";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                DateTime.TryParse(reader["Date"].ToString(), out DateTime startDate_);
+
+                                Outgoing outgoing = new Outgoing
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    OutGoing = Convert.ToInt32(reader["OutGoing"]),
+                                    Vist_Id = Convert.ToInt32(reader["Vist_Id"]),
+                                    Details = reader["Details"].ToString(),
+                                    Notes = reader["Notes"].ToString(),
+                                    Date = startDate_
+                                };
+
+                                data.Add(outgoing);
+
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (SQLiteException e)
+            {
+            }
+            return data;
+        }
     }
 }

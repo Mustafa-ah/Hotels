@@ -39,5 +39,51 @@ namespace Hotels.Data
             }
             return result;
         }
+
+        public List<Contract> GetAllContracts()
+        {
+            List<Contract> data = new List<Contract>();
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(sQLiteConnection))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM TA_Contract ";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                DateTime.TryParse(reader["Start_Date"].ToString(), out DateTime startDate_);
+                                DateTime.TryParse(reader["End_Date"].ToString(), out DateTime endDate_);
+
+                                Contract contract = new Contract
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Hotel_Id = Convert.ToInt32(reader["Hotel_Id"]),
+                                    Vists_count = Convert.ToInt32(reader["Vists_count"]),
+                                    Hotel_Name = reader["Hotel_Name"].ToString(),
+                                    Price = float.Parse(reader["Price"].ToString()),
+                                    Notes = reader["Notes"].ToString(),
+                                    Start_Date = startDate_,
+                                    End_Date = endDate_
+                                };
+
+                                data.Add(contract);
+
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (SQLiteException e)
+            {
+            }
+            return data;
+        }
     }
 }

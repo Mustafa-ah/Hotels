@@ -53,7 +53,7 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonDeductions" Content="الخصومات" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
+                    <Button x:Name="buttonDeductions" Content="الخصومات" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" Click="ButtonDeductions_Click"/>
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
@@ -79,7 +79,7 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonContracts" Content="العقود" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
+                    <Button x:Name="buttonContracts" Content="العقود" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" Click="ButtonContracts_Click" />
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
@@ -105,7 +105,7 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonOutGoing" Content="المصروفات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+                    <Button x:Name="buttonOutGoing" Content="المصروفات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" Click="ButtonOutGoing_Click"/>
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
@@ -159,7 +159,7 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonEmplyee" Content="الموظفين" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" />
+                    <Button x:Name="buttonEmplyee" Content="الموظفين" VerticalContentAlignment="Center" Height="130" Margin="5" FontWeight="SemiBold" FontSize="36" Click="ButtonEmplyee_Click" />
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 

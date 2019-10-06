@@ -15,24 +15,6 @@ namespace Hotels
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-         
-        }
-
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                Button_Click(sender, e);
-                MessageBox.Show("تم الاتصال");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-        }
 
         private void AddVist_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,7 +30,8 @@ namespace Hotels
 
         private void ButtonHotles_Click(object sender, RoutedEventArgs e)
         {
-           
+            HotelsView hotelsView = new HotelsView();
+            hotelsView.Show();
         }
 
         private void ImgAddHotel_MouseDown(object sender, MouseButtonEventArgs e)
@@ -79,6 +62,30 @@ namespace Hotels
         {
             AddDeduction addDeduction = new AddDeduction();
             addDeduction.Show();
+        }
+
+        private void ButtonContracts_Click(object sender, RoutedEventArgs e)
+        {
+            ContractsView contractsView = new ContractsView();
+            contractsView.Show();
+        }
+
+        private void ButtonEmplyee_Click(object sender, RoutedEventArgs e)
+        {
+            EmplyeesView emplyeesView = new EmplyeesView();
+            emplyeesView.Show();
+        }
+
+        private void ButtonOutGoing_Click(object sender, RoutedEventArgs e)
+        {
+            OutgoingView outgoingView = new OutgoingView();
+            outgoingView.Show();
+        }
+
+        private void ButtonDeductions_Click(object sender, RoutedEventArgs e)
+        {
+            DeductionView deductionView = new DeductionView();
+            deductionView.Show();
         }
     }
 }

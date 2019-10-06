@@ -1,4 +1,4 @@
-﻿<Window x:Class="Hotels.VistsView"
+﻿<Window x:Class="Hotels.HotelsView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -14,14 +14,6 @@
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="0" Margin="10" >
             <StackPanel Orientation="Vertical" Margin="20">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button x:Name="btnSearch" Width="100" Content="بحث" Click="BtnSearch_Click"/>
-                    <DatePicker x:Name="PickerTo"  VerticalContentAlignment="Center"/>
-                    <Label Content="الى"  FontSize="20" VerticalContentAlignment="Center"/>
-                    <DatePicker x:Name="pickerFrom" VerticalContentAlignment="Center"/>
-                    <Label Content="من"  FontSize="20" VerticalContentAlignment="Center"/>
-                </StackPanel>
-                <StackPanel Height="1" Background="LightGray" VerticalAlignment="Stretch" Margin="10"/>
-                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <TextBox x:Name="txtSearch" VerticalAlignment="Stretch" Width="400" TextChanged="TxtSearch_TextChanged" TextAlignment="Center"/>
                     <Label Content="بحث عن   "  FontSize="10"/>
                 </StackPanel>
@@ -31,14 +23,14 @@
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1"  Margin="10" >
 
             <DataGrid RowHeight="50" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" FontSize="14" AutoGeneratingColumn="VistsGrid_AutoGeneratingColumn"
-        VerticalAlignment="Stretch" CanUserAddRows="False" HorizontalContentAlignment="Center" x:Name="VistsGrid" Background="AliceBlue"/>
+        VerticalAlignment="Stretch" CanUserAddRows="False" HorizontalContentAlignment="Center" x:Name="HotelsGrid" Background="AliceBlue"/>
 
         </Border>
 
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="2"  Margin="10" >
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                 <Label Content="0" x:Name="labTotal" FontSize="20" Foreground="Red"/>
-                <Label Content=": الاجمالى "  FontSize="20"/>
+                <Label Content=": الاجمالى "  FontSize="20" />
             </StackPanel>
         </Border>
     </Grid>

@@ -104,5 +104,49 @@ namespace Hotels.Data
             }
             return result;
         }
+
+        public List<Deduction> GetAllDeductions()
+        {
+            List<Deduction> data = new List<Deduction>();
+            try
+            {
+                using (SQLiteConnection conn = new SQLiteConnection(sQLiteConnection))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM TA_Deduction ";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                    {
+
+                        using (SQLiteDataReader reader = cmd.ExecuteReader())
+                        {
+                           
+                            while (reader.Read())
+                            {
+                                DateTime.TryParse(reader["Date"].ToString(), out DateTime startDate_);
+                                Deduction deduction = new Deduction
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Emplyee_Id = Convert.ToInt32(reader["Emplyee_Id"]),
+                                    Emplyee_Name = reader["Emplyee_Name"].ToString(),
+                                    DeductionValue = float.Parse(reader["DeductionValue"].ToString()),
+                                    Reson = reader["Reson"].ToString(),
+                                    Notes = reader["Notes"].ToString(),
+                                    Date = startDate_
+                                };
+
+                                data.Add(deduction);
+
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (SQLiteException e)
+            {
+            }
+            return data;
+        }
     }
 }
