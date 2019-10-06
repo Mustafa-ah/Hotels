@@ -79,6 +79,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\ContractData.cs" />
+    <Compile Include="Data\EmplyeeData.cs" />
+    <Compile Include="Data\HotelsData.cs" />
+    <Compile Include="Data\OutgoingData.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Contract.cs" />
+    <Compile Include="Models\Deduction.cs" />
+    <Compile Include="Models\Emplyee.cs" />
+    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\Outgoing.cs" />
+    <Compile Include="Models\Vist.cs" />
+    <Compile Include="Views\AddDeduction.xaml.cs">
+      <DependentUpon>AddDeduction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddOutGoing.xaml.cs">
+      <DependentUpon>AddOutGoing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddVist.xaml.cs">
+      <DependentUpon>AddVist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddContract.xaml.cs">
+      <DependentUpon>AddContract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddEmplyee.xaml.cs">
+      <DependentUpon>AddEmplyee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddHotel.xaml.cs">
+      <DependentUpon>AddHotel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VistsView.xaml.cs">
       <DependentUpon>VistsView.xaml</DependentUpon>
     </Compile>
@@ -96,6 +125,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddDeduction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddOutGoing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddVist.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddContract.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddEmplyee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AddHotel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\VistsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

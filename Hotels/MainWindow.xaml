@@ -29,11 +29,11 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonHotles" Content="الفنادق" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+                    <Button x:Name="buttonHotles" Content="الفنادق" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" Click="ButtonHotles_Click"/>
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                        <Image x:Name="ImgAddHotel" Width="50" Height="50" MouseDown="ImgAddHotel_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 
@@ -57,7 +57,7 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                        <Image x:Name="imgDeduction" Width="50" Height="50" MouseDown="ImgDeduction_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 
@@ -83,7 +83,7 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                        <Image x:Name="imgAddContract" Width="50" Height="50" MouseDown="ImgAddContract_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 
@@ -109,7 +109,7 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                        <Image x:Name="imgOutgoing" Width="50" Height="50" MouseDown="ImgOutgoing_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 
@@ -131,7 +131,7 @@
                 <StackPanel Orientation="Vertical">
 
 
-                    <Button x:Name="buttonVists" Content="الزيارات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" />
+                    <Button x:Name="buttonVists" Content="الزيارات" VerticalContentAlignment="Center" Height="130" Margin="5" FontSize="36" FontWeight="SemiBold" Click="ButtonVists_Click" />
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
@@ -163,7 +163,7 @@
 
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
 
-                        <Image Width="50" Height="50" MouseDown="Image_MouseDown" Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
+                        <Image x:Name="ImgAddEmplyee" Width="50" Height="50" MouseDown="ImgAddEmplyee_MouseDown"  Source = "Images\add_new.png" VerticalAlignment = "Center" HorizontalAlignment="Center" />
                     </StackPanel>
                 </StackPanel>
 

@@ -5,25 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hotels">
     <Grid>
-
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="0"  >
-
-            <DockPanel
-        HorizontalAlignment="Stretch" 
-        VerticalAlignment="Stretch" Background="RosyBrown"
-        Height="Auto" 
-        Margin="10">
-
-                <StackPanel Orientation="Vertical">
-
-
-                    <DataGrid Width="500" Height="300" x:Name="VistsGrid" Background="AliceBlue"/>
-                    
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="0" Margin="10" >
+            <StackPanel Orientation="Vertical" Margin="20">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button x:Name="btnSearch" Width="100" Content="بحث" Click="BtnSearch_Click"/>
+                    <DatePicker x:Name="PickerTo"  VerticalContentAlignment="Center"/>
+                    <Label Content="الى"  FontSize="20" VerticalContentAlignment="Center"/>
+                    <DatePicker x:Name="pickerFrom" VerticalContentAlignment="Center"/>
+                    <Label Content="من"  FontSize="20" VerticalContentAlignment="Center"/>
                 </StackPanel>
+                <StackPanel Height="1" Background="LightGray" VerticalAlignment="Stretch" Margin="10"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBox x:Name="txtSearch" VerticalAlignment="Stretch" Width="400" TextChanged="TxtSearch_TextChanged" />
+                    <Label Content="بحث عن   "  FontSize="10"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
 
-            </DockPanel>
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1"  Margin="10" >
+
+            <DataGrid FlowDirection="RightToLeft" HorizontalAlignment="Stretch" FontSize="14" AutoGeneratingColumn="VistsGrid_AutoGeneratingColumn"
+        VerticalAlignment="Stretch" CanUserAddRows="False" HorizontalContentAlignment="Center" x:Name="VistsGrid" Background="AliceBlue"/>
 
         </Border>
 
+        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="2"  Margin="10" >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Label Content="0" x:Name="labTotal" FontSize="20" Foreground="Red"/>
+                <Label Content=": الاجمالى "  FontSize="20"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

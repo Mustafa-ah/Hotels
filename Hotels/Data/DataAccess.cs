@@ -18,5 +18,21 @@ namespace Hotels.Data
         {
             sQLiteConnection = new SQLiteConnection(connectionString);
         }
+
+        protected void OpenConnection()
+        {
+            if (sQLiteConnection.State == System.Data.ConnectionState.Closed)
+            {
+                sQLiteConnection.Open();
+            }
+        }
+
+        protected void CloseConnection()
+        {
+            if (sQLiteConnection.State == System.Data.ConnectionState.Open)
+            {
+                sQLiteConnection.Close();
+            }
+        }
     }
 }

@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Hotels.Views;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Hotels
 {
@@ -28,30 +17,7 @@ namespace Hotels
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //string connectionString = @"Data Source=C:\Users\musta\source\repos\Hotels\hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
-            string connectionString = "Data Source=|DataDirectory|hotels_db.db; Version=3; FailIfMissing=True; Foreign Keys=True;";
-            SQLiteConnection sQLiteConnection = new SQLiteConnection(connectionString);
-
-            sQLiteConnection.Open();
-
-            using (SQLiteCommand cmd = new SQLiteCommand(sQLiteConnection))
-            {
-                cmd.CommandText = "INSERT INTO TA_Emplyee VALUES (@Id, @Name, @Moble, @Salary)";
-                cmd.Prepare();
-                cmd.Parameters.AddWithValue("@Name", "Mustafa");
-                cmd.Parameters.AddWithValue("@Moble", "011131455652");
-                cmd.Parameters.AddWithValue("@Salary", 5000);
-                cmd.Parameters.AddWithValue("@Id", 5000);
-                try
-                {
-                   var result = cmd.ExecuteNonQuery();
-                }
-                catch (SQLiteException ee)
-                {
-                    string ms = ee.Message;
-                }
-            }
-            sQLiteConnection.Close();
+         
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -70,8 +36,49 @@ namespace Hotels
 
         private void AddVist_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Views.AddVist addVist = new AddVist();
+            addVist.Show();
+        }
+
+        private void ButtonVists_Click(object sender, RoutedEventArgs e)
+        {
             VistsView vistsView = new VistsView();
             vistsView.Show();
+        }
+
+        private void ButtonHotles_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void ImgAddHotel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddHotel addHotel = new AddHotel();
+            addHotel.Show();
+        }
+
+        private void ImgAddEmplyee_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddEmplyee addEmplyee = new AddEmplyee();
+            addEmplyee.Show();
+        }
+
+        private void ImgAddContract_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddContract addContract = new AddContract();
+            addContract.Show();
+        }
+
+        private void ImgOutgoing_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddOutGoing addOutGoing = new AddOutGoing();
+            addOutGoing.Show();
+        }
+
+        private void ImgDeduction_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddDeduction addDeduction = new AddDeduction();
+            addDeduction.Show();
         }
     }
 }
