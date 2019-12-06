@@ -34,9 +34,28 @@ namespace Hotels
             Emplyees = data.GetAllEmplyee();
             EmplyeesGrid.ItemsSource = Emplyees;
 
+           // AddDeleteCol();
+
             CalcTotal(Emplyees);
         }
 
+        private async Task AddDeleteCol()
+        {
+            await Task.Delay(1000);
+            DataGridTextColumn cDel = new DataGridTextColumn
+            {
+                Header = "Num",
+
+                Width = 110
+            };
+            EmplyeesGrid.Columns.Add(cDel);
+
+            for (int i = 0; i < Emplyees.Count; i++)
+            {
+              //  EmplyeesGrid.celle
+            }
+            
+        }
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {

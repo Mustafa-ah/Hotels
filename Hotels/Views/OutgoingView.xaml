@@ -30,7 +30,7 @@
 
         <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1"  Margin="10" >
 
-            <DataGrid RowHeight="50" VerticalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" FontSize="14" AutoGeneratingColumn="VistsGrid_AutoGeneratingColumn"
+            <DataGrid RowHeight="50" VerticalContentAlignment="Center" SelectionUnit="Cell" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" FontSize="14" AutoGeneratingColumn="VistsGrid_AutoGeneratingColumn"
         VerticalAlignment="Stretch" CanUserAddRows="False" HorizontalContentAlignment="Center" x:Name="OutgoingsGrid" Background="AliceBlue"/>
 
         </Border>
