@@ -33,7 +33,34 @@ namespace Hotels
             Hotels = data.GetAllHotels();
             HotelsGrid.ItemsSource = Hotels;
 
+            HotelsGrid.SelectedCellsChanged += HotelsGrid_SelectedCellsChanged;
+
             CalcTotal(Hotels);
+        }
+
+        private void HotelsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (e.AddedCells.Count > 0)
+            {
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete")
+                {
+                    Hotel hotel = e.AddedCells[0].Item as Hotel;
+                    if (MessageBox.Show($" حذف {hotel.Name}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Hotels.Remove(hotel);
+                        CalcTotal(Hotels);
+                        MessageBox.Show($" تم حذف {hotel.Name}");
+
+                        HotelsGrid.ItemsSource = null;
+                        HotelsGrid.ItemsSource = Hotels;
+                        HotelsGrid.Items.Refresh();
+
+                        data.Delete(hotel.Id, "TA_Hotel");
+                    }
+                }
+
+            }
         }
 
 

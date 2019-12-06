@@ -32,8 +32,33 @@ namespace Hotels
 
             Contracts = data.GetAllContracts();
             ContractsGrid.ItemsSource = Contracts;
-
+            ContractsGrid.SelectedCellsChanged += ContractsGrid_SelectedCellsChanged;
             CalcTotal(Contracts);
+        }
+
+        private void ContractsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (e.AddedCells.Count > 0)
+            {
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete")
+                {
+                    Contract contract = e.AddedCells[0].Item as Contract;
+                    if (MessageBox.Show($" حذف {contract.Hotel_Name}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Contracts.Remove(contract);
+                        CalcTotal(Contracts);
+                        MessageBox.Show($" تم حذف {contract.Hotel_Name}");
+
+                        ContractsGrid.ItemsSource = null;
+                        ContractsGrid.ItemsSource = Contracts;
+                        ContractsGrid.Items.Refresh();
+
+                        data.Delete(contract.Id, "TA_Contract");
+                    }
+                }
+
+            }
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

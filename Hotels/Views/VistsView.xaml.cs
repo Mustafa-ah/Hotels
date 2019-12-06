@@ -32,8 +32,33 @@ namespace Hotels
 
             Vists = data.GetAllVists();
             VistsGrid.ItemsSource = Vists;
-
+            VistsGrid.SelectedCellsChanged += VistsGrid_SelectedCellsChanged;
             CalcTotal(Vists);
+        }
+
+        private void VistsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (e.AddedCells.Count > 0)
+            {
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete")
+                {
+                    Vist vist = e.AddedCells[0].Item as Vist;
+                    if (MessageBox.Show($" حذف {vist.Name}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Vists.Remove(vist);
+                        CalcTotal(Vists);
+                        MessageBox.Show($" تم حذف {vist.Name}");
+
+                        VistsGrid.ItemsSource = null;
+                        VistsGrid.ItemsSource = Vists;
+                        VistsGrid.Items.Refresh();
+
+                        data.Delete(vist.Id, "TA_Vists");
+                    }
+                }
+
+            }
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)

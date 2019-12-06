@@ -32,9 +32,35 @@ namespace Hotels
 
             Outgoings = data.GetAllOutgoings();
             OutgoingsGrid.ItemsSource = Outgoings;
-
+            OutgoingsGrid.SelectedCellsChanged += OutgoingsGrid_SelectedCellsChanged;
             CalcTotal(Outgoings);
         }
+
+        private void OutgoingsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (e.AddedCells.Count > 0)
+            {
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete")
+                {
+                    Outgoing outgoing = e.AddedCells[0].Item as Outgoing;
+                    if (MessageBox.Show($" حذف {outgoing.Details}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Outgoings.Remove(outgoing);
+                        CalcTotal(Outgoings);
+                        MessageBox.Show($" تم حذف {outgoing.Details}");
+
+                        OutgoingsGrid.ItemsSource = null;
+                        OutgoingsGrid.ItemsSource = Outgoings;
+                        OutgoingsGrid.Items.Refresh();
+
+                        data.Delete(outgoing.Id, "TA_OutGoings");
+                    }
+                }
+
+            }
+        }
+
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {

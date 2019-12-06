@@ -33,28 +33,35 @@ namespace Hotels
 
             Emplyees = data.GetAllEmplyee();
             EmplyeesGrid.ItemsSource = Emplyees;
-
+            EmplyeesGrid.SelectedCellsChanged += EmplyeesGrid_SelectedCellsChanged;
            // AddDeleteCol();
 
             CalcTotal(Emplyees);
         }
 
-        private async Task AddDeleteCol()
+        private void EmplyeesGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            await Task.Delay(1000);
-            DataGridTextColumn cDel = new DataGridTextColumn
+            if (e.AddedCells.Count > 0)
             {
-                Header = "Num",
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete") 
+                {
+                    Emplyee emplyee = e.AddedCells[0].Item as Emplyee;
+                    if (MessageBox.Show($" حذف {emplyee.Name}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Emplyees.Remove(emplyee);
+                        CalcTotal(Emplyees);
+                        MessageBox.Show($" تم حذف {emplyee.Name}");
+     
+                        EmplyeesGrid.ItemsSource = null;
+                        EmplyeesGrid.ItemsSource = Emplyees;
+                        EmplyeesGrid.Items.Refresh();
 
-                Width = 110
-            };
-            EmplyeesGrid.Columns.Add(cDel);
-
-            for (int i = 0; i < Emplyees.Count; i++)
-            {
-              //  EmplyeesGrid.celle
+                        data.Delete(emplyee.Id, "TA_Emplyee");
+                    }
+                }
+               
             }
-            
         }
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)

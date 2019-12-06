@@ -34,5 +34,30 @@ namespace Hotels.Data
                 sQLiteConnection.Close();
             }
         }
+
+        public int Delete(int id, string tableName)
+        {
+            int result = -1;
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand(conn))
+                {
+                    cmd.CommandText = $"DELETE FROM {tableName} WHERE Id = @I";
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@I", id);
+                    try
+                    {
+                        result = cmd.ExecuteNonQuery();
+                    }
+                    catch (SQLiteException e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+                conn.Close();
+            }
+            return result;
+        }
     }
 }

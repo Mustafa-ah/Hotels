@@ -32,8 +32,33 @@ namespace Hotels
 
             Deductions = data.GetAllDeductions();
             DeductionsGrid.ItemsSource = Deductions;
-
+            DeductionsGrid.SelectedCellsChanged += DeductionsGrid_SelectedCellsChanged;
             CalcTotal(Deductions);
+        }
+
+        private void DeductionsGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            if (e.AddedCells.Count > 0)
+            {
+                if (e.AddedCells[0].Column.Header.ToString() == "Delete")
+                {
+                    Deduction deduction = e.AddedCells[0].Item as Deduction;
+                    if (MessageBox.Show($" حذف {deduction.Reson}", "تأكيد الحذف", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK)
+                        == MessageBoxResult.OK)
+                    {
+                        Deductions.Remove(deduction);
+                        CalcTotal(Deductions);
+                        MessageBox.Show($" تم حذف {deduction.Reson}");
+
+                        DeductionsGrid.ItemsSource = null;
+                        DeductionsGrid.ItemsSource = Deductions;
+                        DeductionsGrid.Items.Refresh();
+
+                        data.Delete(deduction.Id, "TA_Deduction");
+                    }
+                }
+
+            }
         }
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
